@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090b12">
+<title>YASSER USER CHECKER</title>
+<style>
+:root{color-scheme:dark;--bg:#090b12;--panel:#111522;--line:#252d40;--muted:#9aa5bb;--text:#f5f7ff;--accent:#8b5cf6;--accent2:#22d3ee}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#24204a 0,transparent 42%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh;padding:24px 14px}
+main{max-width:760px;margin:auto}.brand{text-align:center;margin:20px 0 26px}.brand small{color:var(--accent2);letter-spacing:3px;font-weight:800}.brand h1{font-size:clamp(27px,7vw,42px);margin:8px 0;background:linear-gradient(90deg,#fff,#a78bfa,#67e8f9);background-clip:text;color:transparent}.brand p{color:var(--muted);margin:0}
+.card{background:linear-gradient(145deg,#151a2a,#0f1320);border:1px solid var(--line);border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 15px 45px #0005}
+h2{font-size:17px;margin:0 0 14px}.controls{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{display:block;color:var(--muted);font-size:13px;margin-bottom:7px}select,input{width:100%;background:#090d18;border:1px solid #303950;border-radius:12px;color:var(--text);padding:12px;font:inherit;outline:none}
+button{border:0;border-radius:12px;padding:12px 15px;font:700 14px system-ui;cursor:pointer;color:white;background:#292f43}
+button.primary{background:linear-gradient(100deg,#7c3aed,#4f46e5)}button.secondary{background:#20283a;border:1px solid #303950}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}.actions button{flex:1;min-width:125px}
+.note{color:var(--muted);font-size:12px;line-height:1.7;margin:12px 0 0}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.pill{background:#0b1020;border:1px solid var(--line);padding:7px 11px;border-radius:99px;font-size:12px;color:#cbd5e1}
+.list{display:grid;gap:8px}.item{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#0b1020;border:1px solid #222b3d;border-radius:12px;padding:10px 12px}.username{font:700 17px ui-monospace,monospace;direction:ltr}.status{font-size:11px;color:#fbbf24}.item button{padding:8px 11px;font-size:12px}
+.empty{text-align:center;color:var(--muted);padding:22px 8px}.footer{text-align:center;color:#6f7b92;font-size:11px;padding:16px}
+@media(max-width:430px){.controls{grid-template-columns:1fr}.card{padding:15px}}
+</style>
+</head>
+<body>
+<main>
+<header class="brand"><small>YASSER TOOLS</small><h1>USERNAME CHECKER</h1><p>مولّد يوزرات ديسكورد رباعية</p></header>
+<section class="card">
+<h2>⚙️ إعدادات التوليد</h2>
+<div class="controls">
+<div><label for="style">نوع اليوزر</label><select id="style"><option value="mixed">حروف وأرقام</option><option value="letters">حروف فقط</option><option value="digits">أرقام وحروف عشوائية</option></select></div>
+<div><label for="count">عدد الاقتراحات</label><select id="count"><option>10</option><option>20</option><option>30</option><option>50</option></select></div>
+</div>
+<div class="actions"><button class="primary" id="generate">⚡ توليد يوزرات</button><button class="secondary" id="copyAll">نسخ الكل</button></div>
+<p class="note">هذه الأداة تولّد اقتراحات وتفحص شكلها فقط. لا تدّعي أن اليوزر متاح أو محجوز؛ حالة التوفر تحتاج تحققًا رسميًا من ديسكورد.</p>
+</section>
+<section class="card">
+<div class="stats"><span class="pill" id="total">0 يوزر</span><span class="pill">الحالة: غير مفحوص</span></div>
+<div class="list" id="list"><div class="empty">اضغط «توليد يوزرات» للبدء</div></div>
+</section>
+<div class="footer">YASSER USER CHECKER · يعمل داخل المتصفح</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let current=[];
+const letters='abcdefghijklmnopqrstuvwxyz';
+const digits='0123456789';
+function pick(s){return s[Math.floor(Math.random()*s.length)]}
+function make(style){
+ let chars=style==='letters'?letters:letters+digits;
+ let out='';
+ for(let i=0;i<4;i++) out+=pick(chars);
+ return out;
+}
+function valid(s){return /^[a-z0-9]{4}$/.test(s)}
+function render(){
+ $('total').textContent=current.length+' يوزر';
+ const list=$('list');list.innerHTML='';
+ if(!current.length){list.innerHTML='<div class="empty">ما فيه اقتراحات حتى الآن</div>';return}
+ current.forEach(name=>{
+  const row=document.createElement('div');row.className='item';
+  const left=document.createElement('div');
+  const n=document.createElement('div');n.className='username';n.textContent=name;
+  const st=document.createElement('div');st.className='status';st.textContent=valid(name)?'✓ صيغة صحيحة · التوفر غير مفحوص':'صيغة غير صحيحة';
+  left.append(n,st);
+  const b=document.createElement('button');b.className='secondary';b.textContent='نسخ';
+  b.onclick=()=>copy(name,b);
+  row.append(left,b);list.append(row);
+ });
+}
+async function copy(text,button){
+ try{await navigator.clipboard.writeText(text);if(button){button.textContent='تم ✓';setTimeout(()=>button.textContent='نسخ',1000)}}
+ catch(e){const t=document.createElement('textarea');t.value=text;document.body.append(t);t.select();document.execCommand('copy');t.remove();if(button)button.textContent='تم ✓'}
+}
+$('generate').onclick=()=>{
+ const count=Number($('count').value),style=$('style').value;
+ const set=new Set();let tries=0;
+ while(set.size<count&&tries<5000){set.add(make(style));tries++}
+ current=[...set];render();
+};
+$('copyAll').onclick=()=>{if(current.length)copy(current.join('\n'),$('copyAll'))};
+</script>
+</body>
+</html>
