@@ -2,83 +2,80 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#090b12">
-<title>YASSER USER CHECKER</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090912">
+<title>YASER • Discord Username Lab</title>
 <style>
-:root{color-scheme:dark;--bg:#090b12;--panel:#111522;--line:#252d40;--muted:#9aa5bb;--text:#f5f7ff;--accent:#8b5cf6;--accent2:#22d3ee}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#24204a 0,transparent 42%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh;padding:24px 14px}
-main{max-width:760px;margin:auto}.brand{text-align:center;margin:20px 0 26px}.brand small{color:var(--accent2);letter-spacing:3px;font-weight:800}.brand h1{font-size:clamp(27px,7vw,42px);margin:8px 0;background:linear-gradient(90deg,#fff,#a78bfa,#67e8f9);background-clip:text;color:transparent}.brand p{color:var(--muted);margin:0}
-.card{background:linear-gradient(145deg,#151a2a,#0f1320);border:1px solid var(--line);border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 15px 45px #0005}
-h2{font-size:17px;margin:0 0 14px}.controls{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-label{display:block;color:var(--muted);font-size:13px;margin-bottom:7px}select,input{width:100%;background:#090d18;border:1px solid #303950;border-radius:12px;color:var(--text);padding:12px;font:inherit;outline:none}
-button{border:0;border-radius:12px;padding:12px 15px;font:700 14px system-ui;cursor:pointer;color:white;background:#292f43}
-button.primary{background:linear-gradient(100deg,#7c3aed,#4f46e5)}button.secondary{background:#20283a;border:1px solid #303950}
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}.actions button{flex:1;min-width:125px}
-.note{color:var(--muted);font-size:12px;line-height:1.7;margin:12px 0 0}
-.stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.pill{background:#0b1020;border:1px solid var(--line);padding:7px 11px;border-radius:99px;font-size:12px;color:#cbd5e1}
-.list{display:grid;gap:8px}.item{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#0b1020;border:1px solid #222b3d;border-radius:12px;padding:10px 12px}.username{font:700 17px ui-monospace,monospace;direction:ltr}.status{font-size:11px;color:#fbbf24}.item button{padding:8px 11px;font-size:12px}
-.empty{text-align:center;color:var(--muted);padding:22px 8px}.footer{text-align:center;color:#6f7b92;font-size:11px;padding:16px}
-@media(max-width:430px){.controls{grid-template-columns:1fr}.card{padding:15px}}
+:root{color-scheme:dark;--bg:#090912;--panel:#141423;--panel2:#1b1a30;--line:#302b4d;--purple:#9b7cff;--pink:#ff5caa;--muted:#aaa6c3;--green:#56e3a0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#34205c 0,transparent 38%),radial-gradient(ellipse at 0% 50%,#17152d 0,transparent 40%),var(--bg);color:#f6f3ff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,sans-serif;min-height:100vh}
+.wrap{max-width:760px;margin:auto;padding:24px 16px 48px}.hero{text-align:center;padding:26px 8px 22px}.logo{display:inline-grid;place-items:center;width:64px;height:64px;border:1px solid #6551a0;border-radius:20px;background:linear-gradient(145deg,#30234e,#171526);box-shadow:0 0 35px #8b5cf633;font-size:27px;font-weight:900;color:#c7b6ff}.eyebrow{color:#c0aaff;font-size:12px;letter-spacing:2px;margin-top:16px}.hero h1{font-size:clamp(27px,7vw,42px);margin:8px 0;background:linear-gradient(90deg,#fff,#b99dff,#ff8ac5);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);margin:0;font-size:14px;line-height:1.8}
+.card{background:linear-gradient(145deg,#19182aee,#11111eee);border:1px solid var(--line);border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 16px 45px #0005}.section-title{font-size:15px;font-weight:800;margin:0 0 14px}.seg{display:grid;grid-template-columns:1fr 1fr;gap:9px}.seg button,.action,.small{border:1px solid var(--line);background:#201e35;color:#eee9ff;border-radius:13px;padding:13px;font-weight:800;font-size:14px}.seg button.active{border-color:var(--purple);background:linear-gradient(135deg,#533c86,#30234e);box-shadow:0 0 20px #9b7cff22}
+label{display:block;color:#d4cee8;font-size:13px;margin:15px 0 8px}select,input{width:100%;background:#0e0e19;border:1px solid #393451;border-radius:12px;padding:13px;color:#fff;font:inherit;outline:none}select:focus,input:focus{border-color:var(--purple)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.action{width:100%;margin-top:16px;background:linear-gradient(100deg,#7654c9,#a34eae);border:0;padding:15px;font-size:15px;box-shadow:0 8px 25px #8c5be533}.action:active,.small:active{transform:scale(.98)}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}.count{font-size:12px;color:var(--muted)}.small{padding:9px 12px;font-size:12px}.results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px;background:#0e0e19;border:1px solid #2d2942;border-radius:12px;min-width:0}.name{font-family:ui-monospace,monospace;font-weight:800;letter-spacing:.6px;direction:ltr;overflow:hidden;text-overflow:ellipsis}.copy{border:0;border-radius:8px;padding:7px 9px;background:#292442;color:#d7caff;font-size:11px;font-weight:700}.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:22px 8px;border:1px dashed #393451;border-radius:12px;font-size:13px}.note{font-size:12px;color:var(--muted);line-height:1.8;margin:12px 2px 0}.status{font-size:12px;color:var(--green);min-height:18px;margin-top:10px}.footer{text-align:center;color:#77728f;font-size:11px;padding:18px}
+@media(max-width:420px){.wrap{padding:15px 12px 35px}.card{padding:15px}.results{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<main>
-<header class="brand"><small>YASSER TOOLS</small><h1>USERNAME CHECKER</h1><p>مولّد يوزرات ديسكورد رباعية</p></header>
+<main class="wrap">
+<header class="hero">
+ <div class="logo">Y</div>
+ <div class="eyebrow">DISCORD USERNAME LAB</div>
+ <h1>Username Generator</h1>
+ <p>مختبر توليد اليوزرات الثلاثية والرباعية<br>اختر النمط وولّد اقتراحاتك بثواني</p>
+</header>
 <section class="card">
-<h2>⚙️ إعدادات التوليد</h2>
-<div class="controls">
-<div><label for="style">نوع اليوزر</label><select id="style"><option value="mixed">حروف وأرقام</option><option value="letters">حروف فقط</option><option value="digits">أرقام وحروف عشوائية</option></select></div>
-<div><label for="count">عدد الاقتراحات</label><select id="count"><option>10</option><option>20</option><option>30</option><option>50</option></select></div>
-</div>
-<div class="actions"><button class="primary" id="generate">⚡ توليد يوزرات</button><button class="secondary" id="copyAll">نسخ الكل</button></div>
-<p class="note">هذه الأداة تولّد اقتراحات وتفحص شكلها فقط. لا تدّعي أن اليوزر متاح أو محجوز؛ حالة التوفر تحتاج تحققًا رسميًا من ديسكورد.</p>
+ <h2 class="section-title">① اختر طول اليوزر</h2>
+ <div class="seg">
+  <button id="three" class="active" type="button">3 أحرف · 3L</button>
+  <button id="four" type="button">4 أحرف · 4L</button>
+ </div>
+ <div class="row">
+  <div><label for="style">نوع اليوزر</label><select id="style">
+   <option value="mix">حروف وأرقام</option><option value="letters">حروف فقط</option><option value="digits">أرقام فقط</option><option value="rare">مزيج عشوائي مميز</option>
+  </select></div>
+  <div><label for="amount">عدد الاقتراحات</label><select id="amount">
+   <option>10</option><option selected>30</option><option>50</option><option>100</option>
+  </select></div>
+ </div>
+ <button class="action" id="generate">✦ ولّد يوزرات</button>
+ <div class="status" id="status" aria-live="polite"></div>
 </section>
 <section class="card">
-<div class="stats"><span class="pill" id="total">0 يوزر</span><span class="pill">الحالة: غير مفحوص</span></div>
-<div class="list" id="list"><div class="empty">اضغط «توليد يوزرات» للبدء</div></div>
+ <div class="toolbar"><h2 class="section-title" style="margin:0">② النتائج</h2><span class="count" id="count">0 اقتراح</span></div>
+ <div class="toolbar" style="margin-top:12px"><button class="small" id="copyAll">نسخ الكل</button><button class="small" id="clear">مسح النتائج</button></div>
+ <div class="results" id="results"><div class="empty">اضغط «ولّد يوزرات» لعرض الاقتراحات هنا</div></div>
 </section>
-<div class="footer">YASSER USER CHECKER · يعمل داخل المتصفح</div>
+<section class="card">
+ <h2 class="section-title">③ فحص الصيغة</h2>
+ <label for="manual">اكتب يوزر وتحقق من تنسيقه</label>
+ <input id="manual" maxlength="32" placeholder="مثال: a7xq" autocomplete="off" autocapitalize="none">
+ <button class="action" id="validate">تحقق من الصيغة</button>
+ <p class="note" id="validation">هذا يفحص شكل الاسم فقط، ولا يؤكد أنه متاح.</p>
+ <p class="note">مهم: لا يمكن لصفحة مستقلة تأكيد توفر اليوزر بشكل موثوق من دون تكامل رسمي مسموح. افحص توفر الاسم داخل Discord نفسه. لا تدخل توكن حسابك أو كلمة مرورك في أي Checker.</p>
+</section>
+<div class="footer">YASER LAB · أداة اقتراحات محلية تعمل داخل المتصفح</div>
 </main>
 <script>
+let length=3, current=[];
 const $=id=>document.getElementById(id);
-let current=[];
-const letters='abcdefghijklmnopqrstuvwxyz';
-const digits='0123456789';
+function setLength(n){length=n;$('three').classList.toggle('active',n===3);$('four').classList.toggle('active',n===4)}
+$('three').onclick=()=>setLength(3);$('four').onclick=()=>setLength(4);
 function pick(s){return s[Math.floor(Math.random()*s.length)]}
-function make(style){
- let chars=style==='letters'?letters:letters+digits;
- let out='';
- for(let i=0;i<4;i++) out+=pick(chars);
- return out;
+function makeName(n,style){
+ const letters='abcdefghijklmnopqrstuvwxyz', digits='0123456789', all=letters+digits;
+ let chars=style==='letters'?letters:style==='digits'?digits:all;
+ if(style==='rare') chars='xqzjvkwy23456789abcdefghmnprst';
+ let out=''; for(let i=0;i<n;i++) out+=pick(chars); return out;
 }
-function valid(s){return /^[a-z0-9]{4}$/.test(s)}
-function render(){
- $('total').textContent=current.length+' يوزر';
- const list=$('list');list.innerHTML='';
- if(!current.length){list.innerHTML='<div class="empty">ما فيه اقتراحات حتى الآن</div>';return}
- current.forEach(name=>{
-  const row=document.createElement('div');row.className='item';
-  const left=document.createElement('div');
-  const n=document.createElement('div');n.className='username';n.textContent=name;
-  const st=document.createElement('div');st.className='status';st.textContent=valid(name)?'✓ صيغة صحيحة · التوفر غير مفحوص':'صيغة غير صحيحة';
-  left.append(n,st);
-  const b=document.createElement('button');b.className='secondary';b.textContent='نسخ';
-  b.onclick=()=>copy(name,b);
-  row.append(left,b);list.append(row);
- });
-}
-async function copy(text,button){
- try{await navigator.clipboard.writeText(text);if(button){button.textContent='تم ✓';setTimeout(()=>button.textContent='نسخ',1000)}}
- catch(e){const t=document.createElement('textarea');t.value=text;document.body.append(t);t.select();document.execCommand('copy');t.remove();if(button)button.textContent='تم ✓'}
-}
-$('generate').onclick=()=>{
- const count=Number($('count').value),style=$('style').value;
- const set=new Set();let tries=0;
- while(set.size<count&&tries<5000){set.add(make(style));tries++}
- current=[...set];render();
-};
-$('copyAll').onclick=()=>{if(current.length)copy(current.join('\n'),$('copyAll'))};
+function render(){const root=$('results');root.innerHTML='';$('count').textContent=current.length+' اقتراح';
+ if(!current.length){root.innerHTML='<div class="empty">لا توجد نتائج حالياً</div>';return}
+ current.forEach(name=>{const div=document.createElement('div');div.className='item';const span=document.createElement('span');span.className='name';span.textContent=name;const b=document.createElement('button');b.className='copy';b.textContent='نسخ';b.onclick=()=>copy(name);div.append(span,b);root.append(div)})}
+async function copy(t){try{await navigator.clipboard.writeText(t);$('status').textContent='تم النسخ';}catch(e){$('status').textContent='تعذر النسخ تلقائياً؛ حدّد الاسم وانسخه.'}}
+$('generate').onclick=()=>{const n=Number($('amount').value),style=$('style').value;const set=new Set();let attempts=0;while(set.size<n&&attempts<n*20){set.add(makeName(length,style));attempts++}current=[...set];render();$('status').textContent='تم توليد '+current.length+' اقتراح';};
+$('copyAll').onclick=()=>copy(current.join('\n'));
+$('clear').onclick=()=>{current=[];render();$('status').textContent='تم مسح النتائج'};
+$('validate').onclick=()=>{const v=$('manual').value.trim();const ok=/^[a-z0-9_.]{2,32}$/.test(v)&&!v.startsWith('.')&&!v.endsWith('.')&&!v.includes('..');$('validation').textContent=ok?'✓ الصيغة تبدو مقبولة مبدئياً — التوفر غير معروف.':'✕ الصيغة غير مطابقة للقواعد الأساسية؛ استخدم أحرفاً إنجليزية صغيرة أو أرقاماً أو _ أو .';$('validation').style.color=ok?'#56e3a0':'#ff7b91'};
+render();
 </script>
-</body>
-</html>
+</body></html>
